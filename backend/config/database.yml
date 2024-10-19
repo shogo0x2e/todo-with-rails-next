@@ -21,7 +21,11 @@ default: &default
 
 development:
   <<: *default
-  database: todo_with_rails_next_api_development
+  username: <%= ENV.fetch("DB_USER") %>
+  password: <%= ENV.fetch("DB_PW") %>
+  host: <%= ENV.fetch("DB_HOST") %>
+  port: <%= ENV.fetch("DB_PORT") %>
+  database: <%= ENV.fetch("DB_NAME") %>
 
   # The specified database role being used to connect to PostgreSQL.
   # To create additional roles in PostgreSQL see `$ createuser --help`.
